@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="relation" attr.type="string"/>
+<key id="d7" for="node" attr.name="version" attr.type="string"/>
+<key id="d6" for="node" attr.name="value" attr.type="double"/>
+<key id="d5" for="node" attr.name="mode" attr.type="string"/>
+<key id="d4" for="node" attr.name="value" attr.type="string"/>
+<key id="d3" for="node" attr.name="key" attr.type="string"/>
+<key id="d2" for="node" attr.name="timestamp" attr.type="string"/>
+<key id="d1" for="node" attr.name="id" attr.type="long"/>
+<key id="d0" for="node" attr.name="type" attr.type="string"/>
+<graph edgedefault="directed"><node id="Sample:1">
+  <data key="d0">Sample</data>
+  <data key="d1">1</data>
+  <data key="d2">2025-09-07T02:17:31.082358</data>
+</node>
+<node id="Condition:temp=nan">
+  <data key="d0">Condition</data>
+  <data key="d3">temp</data>
+  <data key="d4">nan</data>
+</node>
+<node id="Condition:humidity=nan">
+  <data key="d0">Condition</data>
+  <data key="d3">humidity</data>
+  <data key="d4">nan</data>
+</node>
+<node id="Condition:aw=nan">
+  <data key="d0">Condition</data>
+  <data key="d3">aw</data>
+  <data key="d4">nan</data>
+</node>
+<node id="Condition:pH=6.2">
+  <data key="d0">Condition</data>
+  <data key="d3">pH</data>
+  <data key="d4">6.2</data>
+</node>
+<node id="Condition:tank=1">
+  <data key="d0">Condition</data>
+  <data key="d3">tank</data>
+  <data key="d4">1</data>
+</node>
+<node id="Condition:period=30">
+  <data key="d0">Condition</data>
+  <data key="d3">period</data>
+  <data key="d4">30</data>
+</node>
+<node id="Condition:moisture=50.0">
+  <data key="d0">Condition</data>
+  <data key="d3">moisture</data>
+  <data key="d4">50.0</data>
+</node>
+<node id="Condition:salt=12.0">
+  <data key="d0">Condition</data>
+  <data key="d3">salt</data>
+  <data key="d4">12.0</data>
+</node>
+<node id="Condition:initial_cfu=5000">
+  <data key="d0">Condition</data>
+  <data key="d3">initial_cfu</data>
+  <data key="d4">5000</data>
+</node>
+<node id="Measurement:Predicted:1">
+  <data key="d0">Measurement</data>
+  <data key="d5">predicted</data>
+  <data key="d6">8303.5</data>
+</node>
+<node id="Model:cfu_model_retrained.pkl|sha256:d8677d5388|mtime:1757208878">
+  <data key="d0">Model</data>
+  <data key="d7">cfu_model_retrained.pkl|sha256:d8677d5388|mtime:1757208878</data>
+</node>
+<node id="Measurement:Actual:1">
+  <data key="d0">Measurement</data>
+  <data key="d5">actual</data>
+  <data key="d6">8900.0</data>
+</node>
+<node id="Derived:mu:1">
+  <data key="d0">Derived</data>
+  <data key="d6">0.0008008518948666581</data>
+</node>
+<edge source="Sample:1" target="Condition:temp=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:humidity=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:aw=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:pH=6.2">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:tank=1">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:period=30">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:moisture=50.0">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:salt=12.0">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:initial_cfu=5000">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Measurement:Predicted:1">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Sample:1" target="Measurement:Actual:1">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Measurement:Predicted:1" target="Model:cfu_model_retrained.pkl|sha256:d8677d5388|mtime:1757208878">
+  <data key="d8">measuredBy</data>
+</edge>
+<edge source="Measurement:Actual:1" target="Derived:mu:1">
+  <data key="d8">yields</data>
+</edge>
+</graph></graphml>

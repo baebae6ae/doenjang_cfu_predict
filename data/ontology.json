@@ -1,0 +1,155 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "type": "Sample",
+      "id": "Sample:1",
+      "timestamp": "2025-09-07T02:17:31.082358"
+    },
+    {
+      "type": "Condition",
+      "key": "temp",
+      "value": "nan",
+      "id": "Condition:temp=nan"
+    },
+    {
+      "type": "Condition",
+      "key": "humidity",
+      "value": "nan",
+      "id": "Condition:humidity=nan"
+    },
+    {
+      "type": "Condition",
+      "key": "aw",
+      "value": "nan",
+      "id": "Condition:aw=nan"
+    },
+    {
+      "type": "Condition",
+      "key": "pH",
+      "value": "6.2",
+      "id": "Condition:pH=6.2"
+    },
+    {
+      "type": "Condition",
+      "key": "tank",
+      "value": "1",
+      "id": "Condition:tank=1"
+    },
+    {
+      "type": "Condition",
+      "key": "period",
+      "value": "30",
+      "id": "Condition:period=30"
+    },
+    {
+      "type": "Condition",
+      "key": "moisture",
+      "value": "50.0",
+      "id": "Condition:moisture=50.0"
+    },
+    {
+      "type": "Condition",
+      "key": "salt",
+      "value": "12.0",
+      "id": "Condition:salt=12.0"
+    },
+    {
+      "type": "Condition",
+      "key": "initial_cfu",
+      "value": "5000",
+      "id": "Condition:initial_cfu=5000"
+    },
+    {
+      "type": "Measurement",
+      "mode": "predicted",
+      "value": 8303.5,
+      "id": "Measurement:Predicted:1"
+    },
+    {
+      "type": "Model",
+      "version": "cfu_model_retrained.pkl|sha256:d8677d5388|mtime:1757208878",
+      "id": "Model:cfu_model_retrained.pkl|sha256:d8677d5388|mtime:1757208878"
+    },
+    {
+      "type": "Measurement",
+      "mode": "actual",
+      "value": 8900.0,
+      "id": "Measurement:Actual:1"
+    },
+    {
+      "type": "Derived",
+      "value": 0.0008008518948666581,
+      "id": "Derived:mu:1"
+    }
+  ],
+  "links": [
+    {
+      "relation": "hasCondition",
+      "source": "Sample:1",
+      "target": "Condition:temp=nan"
+    },
+    {
+      "relation": "hasCondition",
+      "source": "Sample:1",
+      "target": "Condition:humidity=nan"
+    },
+    {
+      "relation": "hasCondition",
+      "source": "Sample:1",
+      "target": "Condition:aw=nan"
+    },
+    {
+      "relation": "hasCondition",
+      "source": "Sample:1",
+      "target": "Condition:pH=6.2"
+    },
+    {
+      "relation": "hasCondition",
+      "source": "Sample:1",
+      "target": "Condition:tank=1"
+    },
+    {
+      "relation": "hasCondition",
+      "source": "Sample:1",
+      "target": "Condition:period=30"
+    },
+    {
+      "relation": "hasCondition",
+      "source": "Sample:1",
+      "target": "Condition:moisture=50.0"
+    },
+    {
+      "relation": "hasCondition",
+      "source": "Sample:1",
+      "target": "Condition:salt=12.0"
+    },
+    {
+      "relation": "hasCondition",
+      "source": "Sample:1",
+      "target": "Condition:initial_cfu=5000"
+    },
+    {
+      "relation": "hasMeasurement",
+      "source": "Sample:1",
+      "target": "Measurement:Predicted:1"
+    },
+    {
+      "relation": "hasMeasurement",
+      "source": "Sample:1",
+      "target": "Measurement:Actual:1"
+    },
+    {
+      "relation": "measuredBy",
+      "source": "Measurement:Predicted:1",
+      "target": "Model:cfu_model_retrained.pkl|sha256:d8677d5388|mtime:1757208878"
+    },
+    {
+      "relation": "yields",
+      "source": "Measurement:Actual:1",
+      "target": "Derived:mu:1"
+    }
+  ]
+}
