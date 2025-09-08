@@ -93,11 +93,36 @@ def build_graph(db_path=DB, out_graphml="data/ontology.graphml", out_json="data/
     # save graphml and json
     os.makedirs(os.path.dirname(out_graphml) or ".", exist_ok=True)
     nx.write_graphml(G, out_graphml)
-    # node-link JSON
     data = nx.node_link_data(G)
     with open(out_json, "w", encoding="utf8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
-    # triples
     with open(out_triples, "w", encoding="utf8") as f:
         json.dump(triples, f, ensure_ascii=False, indent=2)
-    return {"graphml": out_graphml, "json": out_json, "triples": out_triples, "nodes": G.number_of_nodes(), "edges": G.number_of_edges()}
+
+    actuals = [n for n in G.nodes(data=True) if n[1].get("type")=="Measurement" and n[1].get("mode")=="actual"]
+    preds   = [n for n in G.nodes(data=True) if n[1].get("type")=="Measurement" and n[1].get("mode")=="predicted"]
+    perf = {}
+    if actuals and preds:
+        try:
+            import numpy as np
+            y_true = [a[1]["value"] for a in actuals]
+            y_pred = [p[1]["value"] for p in preds[:len(y_true)]]
+            from sklearn.metrics import mean_squared_error, r2_score
+            perf = {
+                "n_samples": len(y_true),
+                "rmse": float(np.sqrt(mean_squared_error(y_true,y_pred))),
+                "r2": float(r2_score(y_true,y_pred))
+            }
+        except Exception:
+            perf = {}
+    return {
+        "graphml": out_graphml,
+        "json": out_json,
+        "triples": out_triples,
+        "nodes": G.number_of_nodes(),
+        "edges": G.number_of_edges(),
+        "graph": G,
+        "node_link": data,
+        "triples_data": triples,
+        "perf": perf,
+    }
