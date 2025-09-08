@@ -179,18 +179,88 @@ elif mode == "History":
 
 # ---------------- ONTOLOGY ----------------
 elif mode == "Ontology":
-    st.header("Ontology / Graph 생성")
-    st.markdown("Prediction history를 바탕으로 간단한 ontology 그래프(node-edge)를 생성합니다.")
-    if st.button("Build Ontology from History"):
-        res = ontology_mod.build_graph(db_path=history.db_path, out_graphml="data/ontology.graphml", out_json="data/ontology.json", out_triples="data/ontology_triples.json")
-        st.success(f"Ontology 생성 완료: nodes={res['nodes']}, edges={res['edges']}")
-        st.write("파일 다운로드:")
-        with open(res["graphml"], "rb") as f:
-            st.download_button("Download graphml", f, file_name=os.path.basename(res["graphml"]))
-        with open(res["json"], "rb") as f:
-            st.download_button("Download JSON (node-link)", f, file_name=os.path.basename(res["json"]))
-        with open(res["triples"], "rb") as f:
-            st.download_button("Download triples (JSON)", f, file_name=os.path.basename(res["triples"]))
-    else:
-        st.info("Ontology를 생성하려면 'Build Ontology from History' 버튼을 누르세요.")
+    st.header("Ontology 기반 품질 검증")
+    st.markdown("Prediction history를 바탕으로 **예측 성능**과 **조건별 오차 패턴**을 분석합니다.")
 
+    if st.button("Build & Analyze Ontology"):
+        res = ontology_mod.build_graph(
+            db_path=history.db_path,
+            out_graphml="data/ontology.graphml",
+            out_json="data/ontology.json",
+            out_triples="data/ontology_triples.json"
+        )
+
+        # ✅ 성능 요약
+        if res["perf"]:
+            st.metric("샘플 수", res["perf"]["n_samples"])
+            st.metric("RMSE", f"{res['perf']['rmse']:.2f}")
+            st.metric("R²", f"{res['perf']['r2']:.3f}")
+        else:
+            st.warning("실측 데이터 부족")
+
+        # 📊 예측 vs 실제 비교 산점도
+        st.subheader("예측 vs 실제 비교")
+        nodes_df = pd.DataFrame(res["node_link"]["nodes"])
+        actuals = nodes_df[(nodes_df["type"]=="Measurement") & (nodes_df["mode"]=="actual")]
+        preds   = nodes_df[(nodes_df["type"]=="Measurement") & (nodes_df["mode"]=="predicted")]
+        if not actuals.empty and not preds.empty:
+            df_comp = pd.DataFrame({
+                "pred": preds["value"].astype(float).values[:len(actuals)],
+                "actual": actuals["value"].astype(float).values,
+                "sample": actuals["id"].str.replace("Measurement:Actual:","")
+            })
+            df_comp["error"] = df_comp["pred"] - df_comp["actual"]
+            st.scatter_chart(df_comp[["pred","actual"]])
+
+        # 📈 조건별 평균 오차 분석
+        st.subheader("조건별 평균 오차")
+        edges_df = pd.DataFrame(res["node_link"]["links"])
+        cond_edges = edges_df[edges_df["relation"]=="hasCondition"]
+        cond_nodes = nodes_df[nodes_df["type"]=="Condition"]
+
+        if not cond_nodes.empty and not actuals.empty:
+            cond_summary = []
+            for _, cond_row in cond_nodes.iterrows():
+                cond_id = cond_row["id"]  # Condition:key=value
+                key, val = cond_row["key"], cond_row["value"]
+
+                # 연결된 샘플 찾기
+                linked_samples = cond_edges[cond_edges["target"]==cond_id]["source"].str.replace("Sample:","")
+                linked_samples = linked_samples.tolist()
+
+                if len(linked_samples)==0:
+                    continue
+
+                subset = df_comp[df_comp["sample"].isin(linked_samples)]
+                if not subset.empty:
+                    cond_summary.append({
+                        "조건": f"{key}={val}",
+                        "샘플수": len(subset),
+                        "평균 예측": subset["pred"].mean(),
+                        "평균 실제": subset["actual"].mean(),
+                        "평균 오차": subset["error"].mean()
+                    })
+
+            if cond_summary:
+                cond_df = pd.DataFrame(cond_summary)
+                st.dataframe(cond_df)
+
+        # 🌐 네트워크 그래프 (실무용)
+        st.subheader("샘플-조건-측정 연결망")
+        from pyvis.network import Network
+        net = Network(height="600px", width="100%", bgcolor="#ffffff", font_color="black")
+        color_map = {"Sample":"#1f77b4","Condition":"#7f7f7f","Measurement":"#2ca02c","Model":"#9467bd","Derived":"#ff7f0e"}
+        for node in res["graph"].nodes(data=True):
+            n, attrs = node
+            ntype = attrs.get("type","")
+            label = n.split(":")[-1] if "Measurement" not in n else f"{attrs.get('mode')}:{attrs.get('value')}"
+            net.add_node(n, label=label, color=color_map.get(ntype,"#cccccc"))
+        for edge in res["graph"].edges(data=True):
+            src, dst, attrs = edge
+            net.add_edge(src, dst, label=attrs.get("relation",""))
+        html_path = "data/ontology_preview.html"
+        net.save_graph(html_path)
+        with open(html_path, "r", encoding="utf-8") as f:
+            st.components.v1.html(f.read(), height=600, scrolling=True)
+    else:
+        st.info("Ontology를 생성하고 분석하려면 버튼을 누르세요.")
