@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#1f77b4", "font": {"color": "black"}, "id": "Sample:1", "label": "1", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:temp=nan", "label": "temp=nan", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:humidity=nan", "label": "humidity=nan", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:aw=nan", "label": "aw=nan", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:pH=6.2", "label": "pH=6.2", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:tank=1", "label": "tank=1", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:period=30", "label": "period=30", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:moisture=50.0", "label": "moisture=50.0", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:salt=12.0", "label": "salt=12.0", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:initial_cfu=5000", "label": "initial_cfu=5000", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Predicted:1", "label": "predicted:8303.5", "shape": "dot"}, {"color": "#9467bd", "font": {"color": "black"}, "id": "Model:cfu_model_retrained.pkl|sha256:d8677d5388|mtime:1757208878", "label": "1757208878", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Actual:1", "label": "actual:8900.0", "shape": "dot"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "Derived:mu:1", "label": "1", "shape": "dot"}, {"color": "#1f77b4", "font": {"color": "black"}, "id": "Sample:2", "label": "2", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:pH=5.1", "label": "pH=5.1", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:period=83", "label": "period=83", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:moisture=53.0", "label": "moisture=53.0", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:salt=10.0", "label": "salt=10.0", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:initial_cfu=3200", "label": "initial_cfu=3200", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Predicted:2", "label": "predicted:9092.5", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Actual:2", "label": "actual:4600.0", "shape": "dot"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "Derived:mu:2", "label": "2", "shape": "dot"}, {"color": "#1f77b4", "font": {"color": "black"}, "id": "Sample:3", "label": "3", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:pH=5.3", "label": "pH=5.3", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:tank=2", "label": "tank=2", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:period=89", "label": "period=89", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:moisture=51.9", "label": "moisture=51.9", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:salt=10.5", "label": "salt=10.5", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:initial_cfu=12500", "label": "initial_cfu=12500", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Predicted:3", "label": "predicted:13436.5", "shape": "dot"}, {"color": "#9467bd", "font": {"color": "black"}, "id": "Model:cfu_model_retrained.pkl|sha256:8ea2ea44a8|mtime:1757312875", "label": "1757312875", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Actual:3", "label": "actual:12100.0", "shape": "dot"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "Derived:mu:3", "label": "3", "shape": "dot"}, {"color": "#1f77b4", "font": {"color": "black"}, "id": "Sample:4", "label": "4", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:pH=5.4", "label": "pH=5.4", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:tank=10", "label": "tank=10", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:moisture=52.2", "label": "moisture=52.2", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:salt=11.1", "label": "salt=11.1", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:initial_cfu=8100", "label": "initial_cfu=8100", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Predicted:4", "label": "predicted:13122.0", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Actual:4", "label": "actual:23800.0", "shape": "dot"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "Derived:mu:4", "label": "4", "shape": "dot"}, {"color": "#1f77b4", "font": {"color": "black"}, "id": "Sample:5", "label": "5", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:tank=3", "label": "tank=3", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:period=36", "label": "period=36", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:moisture=51.8", "label": "moisture=51.8", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:initial_cfu=3100", "label": "initial_cfu=3100", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Predicted:5", "label": "predicted:6821.5", "shape": "dot"}, {"color": "#9467bd", "font": {"color": "black"}, "id": "Model:cfu_model_retrained.pkl|sha256:6912f5517f|mtime:1757313270", "label": "1757313270", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Actual:5", "label": "actual:6200.0", "shape": "dot"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "Derived:mu:5", "label": "5", "shape": "dot"}, {"color": "#1f77b4", "font": {"color": "black"}, "id": "Sample:6", "label": "6", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:period=39", "label": "period=39", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:moisture=50.8", "label": "moisture=50.8", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:initial_cfu=1100", "label": "initial_cfu=1100", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Predicted:6", "label": "predicted:7122.5", "shape": "dot"}, {"color": "#9467bd", "font": {"color": "black"}, "id": "Model:cfu_model_retrained.pkl|sha256:ee0b284389|mtime:1757315122", "label": "1757315122", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Actual:6", "label": "actual:7400.0", "shape": "dot"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "Derived:mu:6", "label": "6", "shape": "dot"}, {"color": "#1f77b4", "font": {"color": "black"}, "id": "Sample:7", "label": "7", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:pH=6.1", "label": "pH=6.1", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:tank=8", "label": "tank=8", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:moisture=51.0", "label": "moisture=51.0", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:salt=11.0", "label": "salt=11.0", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:initial_cfu=1600", "label": "initial_cfu=1600", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Predicted:7", "label": "predicted:6276.5", "shape": "dot"}, {"color": "#9467bd", "font": {"color": "black"}, "id": "Model:cfu_model_retrained.pkl|sha256:414c047e92|mtime:1757383215", "label": "1757383215", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Actual:7", "label": "actual:23000.0", "shape": "dot"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "Derived:mu:7", "label": "7", "shape": "dot"}, {"color": "#1f77b4", "font": {"color": "black"}, "id": "Sample:8", "label": "8", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:tank=14", "label": "tank=14", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:moisture=50.6", "label": "moisture=50.6", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:salt=10.9", "label": "salt=10.9", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:initial_cfu=5500", "label": "initial_cfu=5500", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Predicted:8", "label": "predicted:11477.0", "shape": "dot"}, {"color": "#9467bd", "font": {"color": "black"}, "id": "Model:cfu_model_retrained.pkl|sha256:cbc99592d7|mtime:1757394058", "label": "1757394058", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Actual:8", "label": "actual:31200.0", "shape": "dot"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "Derived:mu:8", "label": "8", "shape": "dot"}, {"color": "#1f77b4", "font": {"color": "black"}, "id": "Sample:11", "label": "11", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:pH=6.0", "label": "pH=6.0", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:period=35", "label": "period=35", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:moisture=54.8", "label": "moisture=54.8", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:salt=10.4", "label": "salt=10.4", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:initial_cfu=1800", "label": "initial_cfu=1800", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Predicted:11", "label": "predicted:6626.0", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Actual:11", "label": "actual:6900.0", "shape": "dot"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "Derived:mu:11", "label": "11", "shape": "dot"}, {"color": "#1f77b4", "font": {"color": "black"}, "id": "Sample:12", "label": "12", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:tank=7", "label": "tank=7", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:period=45", "label": "period=45", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:moisture=54.4", "label": "moisture=54.4", "shape": "dot"}, {"color": "#7f7f7f", "font": {"color": "black"}, "id": "Condition:initial_cfu=1400", "label": "initial_cfu=1400", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Predicted:12", "label": "predicted:6386.0", "shape": "dot"}, {"color": "#9467bd", "font": {"color": "black"}, "id": "Model:cfu_model_retrained.pkl|sha256:44eb5b57e5|mtime:1757404689", "label": "1757404689", "shape": "dot"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "Measurement:Actual:12", "label": "actual:2500.0", "shape": "dot"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "Derived:mu:12", "label": "12", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"from": "Sample:1", "label": "hasCondition", "to": "Condition:temp=nan"}, {"from": "Sample:1", "label": "hasCondition", "to": "Condition:humidity=nan"}, {"from": "Sample:1", "label": "hasCondition", "to": "Condition:aw=nan"}, {"from": "Sample:1", "label": "hasCondition", "to": "Condition:pH=6.2"}, {"from": "Sample:1", "label": "hasCondition", "to": "Condition:tank=1"}, {"from": "Sample:1", "label": "hasCondition", "to": "Condition:period=30"}, {"from": "Sample:1", "label": "hasCondition", "to": "Condition:moisture=50.0"}, {"from": "Sample:1", "label": "hasCondition", "to": "Condition:salt=12.0"}, {"from": "Sample:1", "label": "hasCondition", "to": "Condition:initial_cfu=5000"}, {"from": "Sample:1", "label": "hasMeasurement", "to": "Measurement:Predicted:1"}, {"from": "Sample:1", "label": "hasMeasurement", "to": "Measurement:Actual:1"}, {"from": "Measurement:Predicted:1", "label": "measuredBy", "to": "Model:cfu_model_retrained.pkl|sha256:d8677d5388|mtime:1757208878"}, {"from": "Measurement:Actual:1", "label": "yields", "to": "Derived:mu:1"}, {"from": "Sample:2", "label": "hasCondition", "to": "Condition:temp=nan"}, {"from": "Sample:2", "label": "hasCondition", "to": "Condition:humidity=nan"}, {"from": "Sample:2", "label": "hasCondition", "to": "Condition:aw=nan"}, {"from": "Sample:2", "label": "hasCondition", "to": "Condition:pH=5.1"}, {"from": "Sample:2", "label": "hasCondition", "to": "Condition:tank=1"}, {"from": "Sample:2", "label": "hasCondition", "to": "Condition:period=83"}, {"from": "Sample:2", "label": "hasCondition", "to": "Condition:moisture=53.0"}, {"from": "Sample:2", "label": "hasCondition", "to": "Condition:salt=10.0"}, {"from": "Sample:2", "label": "hasCondition", "to": "Condition:initial_cfu=3200"}, {"from": "Sample:2", "label": "hasMeasurement", "to": "Measurement:Predicted:2"}, {"from": "Sample:2", "label": "hasMeasurement", "to": "Measurement:Actual:2"}, {"from": "Measurement:Predicted:2", "label": "measuredBy", "to": "Model:cfu_model_retrained.pkl|sha256:d8677d5388|mtime:1757208878"}, {"from": "Measurement:Actual:2", "label": "yields", "to": "Derived:mu:2"}, {"from": "Sample:3", "label": "hasCondition", "to": "Condition:temp=nan"}, {"from": "Sample:3", "label": "hasCondition", "to": "Condition:humidity=nan"}, {"from": "Sample:3", "label": "hasCondition", "to": "Condition:aw=nan"}, {"from": "Sample:3", "label": "hasCondition", "to": "Condition:pH=5.3"}, {"from": "Sample:3", "label": "hasCondition", "to": "Condition:tank=2"}, {"from": "Sample:3", "label": "hasCondition", "to": "Condition:period=89"}, {"from": "Sample:3", "label": "hasCondition", "to": "Condition:moisture=51.9"}, {"from": "Sample:3", "label": "hasCondition", "to": "Condition:salt=10.5"}, {"from": "Sample:3", "label": "hasCondition", "to": "Condition:initial_cfu=12500"}, {"from": "Sample:3", "label": "hasMeasurement", "to": "Measurement:Predicted:3"}, {"from": "Sample:3", "label": "hasMeasurement", "to": "Measurement:Actual:3"}, {"from": "Measurement:Predicted:3", "label": "measuredBy", "to": "Model:cfu_model_retrained.pkl|sha256:8ea2ea44a8|mtime:1757312875"}, {"from": "Measurement:Actual:3", "label": "yields", "to": "Derived:mu:3"}, {"from": "Sample:4", "label": "hasCondition", "to": "Condition:temp=nan"}, {"from": "Sample:4", "label": "hasCondition", "to": "Condition:humidity=nan"}, {"from": "Sample:4", "label": "hasCondition", "to": "Condition:aw=nan"}, {"from": "Sample:4", "label": "hasCondition", "to": "Condition:pH=5.4"}, {"from": "Sample:4", "label": "hasCondition", "to": "Condition:tank=10"}, {"from": "Sample:4", "label": "hasCondition", "to": "Condition:period=89"}, {"from": "Sample:4", "label": "hasCondition", "to": "Condition:moisture=52.2"}, {"from": "Sample:4", "label": "hasCondition", "to": "Condition:salt=11.1"}, {"from": "Sample:4", "label": "hasCondition", "to": "Condition:initial_cfu=8100"}, {"from": "Sample:4", "label": "hasMeasurement", "to": "Measurement:Predicted:4"}, {"from": "Sample:4", "label": "hasMeasurement", "to": "Measurement:Actual:4"}, {"from": "Measurement:Predicted:4", "label": "measuredBy", "to": "Model:cfu_model_retrained.pkl|sha256:8ea2ea44a8|mtime:1757312875"}, {"from": "Measurement:Actual:4", "label": "yields", "to": "Derived:mu:4"}, {"from": "Sample:5", "label": "hasCondition", "to": "Condition:temp=nan"}, {"from": "Sample:5", "label": "hasCondition", "to": "Condition:humidity=nan"}, {"from": "Sample:5", "label": "hasCondition", "to": "Condition:aw=nan"}, {"from": "Sample:5", "label": "hasCondition", "to": "Condition:pH=6.2"}, {"from": "Sample:5", "label": "hasCondition", "to": "Condition:tank=3"}, {"from": "Sample:5", "label": "hasCondition", "to": "Condition:period=36"}, {"from": "Sample:5", "label": "hasCondition", "to": "Condition:moisture=51.8"}, {"from": "Sample:5", "label": "hasCondition", "to": "Condition:salt=10.5"}, {"from": "Sample:5", "label": "hasCondition", "to": "Condition:initial_cfu=3100"}, {"from": "Sample:5", "label": "hasMeasurement", "to": "Measurement:Predicted:5"}, {"from": "Sample:5", "label": "hasMeasurement", "to": "Measurement:Actual:5"}, {"from": "Measurement:Predicted:5", "label": "measuredBy", "to": "Model:cfu_model_retrained.pkl|sha256:6912f5517f|mtime:1757313270"}, {"from": "Measurement:Actual:5", "label": "yields", "to": "Derived:mu:5"}, {"from": "Sample:6", "label": "hasCondition", "to": "Condition:temp=nan"}, {"from": "Sample:6", "label": "hasCondition", "to": "Condition:humidity=nan"}, {"from": "Sample:6", "label": "hasCondition", "to": "Condition:aw=nan"}, {"from": "Sample:6", "label": "hasCondition", "to": "Condition:pH=6.2"}, {"from": "Sample:6", "label": "hasCondition", "to": "Condition:tank=3"}, {"from": "Sample:6", "label": "hasCondition", "to": "Condition:period=39"}, {"from": "Sample:6", "label": "hasCondition", "to": "Condition:moisture=50.8"}, {"from": "Sample:6", "label": "hasCondition", "to": "Condition:salt=11.1"}, {"from": "Sample:6", "label": "hasCondition", "to": "Condition:initial_cfu=1100"}, {"from": "Sample:6", "label": "hasMeasurement", "to": "Measurement:Predicted:6"}, {"from": "Sample:6", "label": "hasMeasurement", "to": "Measurement:Actual:6"}, {"from": "Measurement:Predicted:6", "label": "measuredBy", "to": "Model:cfu_model_retrained.pkl|sha256:ee0b284389|mtime:1757315122"}, {"from": "Measurement:Actual:6", "label": "yields", "to": "Derived:mu:6"}, {"from": "Sample:7", "label": "hasCondition", "to": "Condition:temp=nan"}, {"from": "Sample:7", "label": "hasCondition", "to": "Condition:humidity=nan"}, {"from": "Sample:7", "label": "hasCondition", "to": "Condition:aw=nan"}, {"from": "Sample:7", "label": "hasCondition", "to": "Condition:pH=6.1"}, {"from": "Sample:7", "label": "hasCondition", "to": "Condition:tank=8"}, {"from": "Sample:7", "label": "hasCondition", "to": "Condition:period=39"}, {"from": "Sample:7", "label": "hasCondition", "to": "Condition:moisture=51.0"}, {"from": "Sample:7", "label": "hasCondition", "to": "Condition:salt=11.0"}, {"from": "Sample:7", "label": "hasCondition", "to": "Condition:initial_cfu=1600"}, {"from": "Sample:7", "label": "hasMeasurement", "to": "Measurement:Predicted:7"}, {"from": "Sample:7", "label": "hasMeasurement", "to": "Measurement:Actual:7"}, {"from": "Measurement:Predicted:7", "label": "measuredBy", "to": "Model:cfu_model_retrained.pkl|sha256:414c047e92|mtime:1757383215"}, {"from": "Measurement:Actual:7", "label": "yields", "to": "Derived:mu:7"}, {"from": "Sample:8", "label": "hasCondition", "to": "Condition:temp=nan"}, {"from": "Sample:8", "label": "hasCondition", "to": "Condition:humidity=nan"}, {"from": "Sample:8", "label": "hasCondition", "to": "Condition:aw=nan"}, {"from": "Sample:8", "label": "hasCondition", "to": "Condition:pH=6.1"}, {"from": "Sample:8", "label": "hasCondition", "to": "Condition:tank=14"}, {"from": "Sample:8", "label": "hasCondition", "to": "Condition:period=39"}, {"from": "Sample:8", "label": "hasCondition", "to": "Condition:moisture=50.6"}, {"from": "Sample:8", "label": "hasCondition", "to": "Condition:salt=10.9"}, {"from": "Sample:8", "label": "hasCondition", "to": "Condition:initial_cfu=5500"}, {"from": "Sample:8", "label": "hasMeasurement", "to": "Measurement:Predicted:8"}, {"from": "Sample:8", "label": "hasMeasurement", "to": "Measurement:Actual:8"}, {"from": "Measurement:Predicted:8", "label": "measuredBy", "to": "Model:cfu_model_retrained.pkl|sha256:cbc99592d7|mtime:1757394058"}, {"from": "Measurement:Actual:8", "label": "yields", "to": "Derived:mu:8"}, {"from": "Sample:11", "label": "hasCondition", "to": "Condition:temp=nan"}, {"from": "Sample:11", "label": "hasCondition", "to": "Condition:humidity=nan"}, {"from": "Sample:11", "label": "hasCondition", "to": "Condition:aw=nan"}, {"from": "Sample:11", "label": "hasCondition", "to": "Condition:pH=6.0"}, {"from": "Sample:11", "label": "hasCondition", "to": "Condition:tank=3"}, {"from": "Sample:11", "label": "hasCondition", "to": "Condition:period=35"}, {"from": "Sample:11", "label": "hasCondition", "to": "Condition:moisture=54.8"}, {"from": "Sample:11", "label": "hasCondition", "to": "Condition:salt=10.4"}, {"from": "Sample:11", "label": "hasCondition", "to": "Condition:initial_cfu=1800"}, {"from": "Sample:11", "label": "hasMeasurement", "to": "Measurement:Predicted:11"}, {"from": "Sample:11", "label": "hasMeasurement", "to": "Measurement:Actual:11"}, {"from": "Measurement:Predicted:11", "label": "measuredBy", "to": "Model:cfu_model_retrained.pkl|sha256:cbc99592d7|mtime:1757394058"}, {"from": "Measurement:Actual:11", "label": "yields", "to": "Derived:mu:11"}, {"from": "Sample:12", "label": "hasCondition", "to": "Condition:temp=nan"}, {"from": "Sample:12", "label": "hasCondition", "to": "Condition:humidity=nan"}, {"from": "Sample:12", "label": "hasCondition", "to": "Condition:aw=nan"}, {"from": "Sample:12", "label": "hasCondition", "to": "Condition:pH=5.3"}, {"from": "Sample:12", "label": "hasCondition", "to": "Condition:tank=7"}, {"from": "Sample:12", "label": "hasCondition", "to": "Condition:period=45"}, {"from": "Sample:12", "label": "hasCondition", "to": "Condition:moisture=54.4"}, {"from": "Sample:12", "label": "hasCondition", "to": "Condition:salt=10.5"}, {"from": "Sample:12", "label": "hasCondition", "to": "Condition:initial_cfu=1400"}, {"from": "Sample:12", "label": "hasMeasurement", "to": "Measurement:Predicted:12"}, {"from": "Sample:12", "label": "hasMeasurement", "to": "Measurement:Actual:12"}, {"from": "Measurement:Predicted:12", "label": "measuredBy", "to": "Model:cfu_model_retrained.pkl|sha256:44eb5b57e5|mtime:1757404689"}, {"from": "Measurement:Actual:12", "label": "yields", "to": "Derived:mu:12"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

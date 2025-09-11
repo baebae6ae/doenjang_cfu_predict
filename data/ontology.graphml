@@ -1,0 +1,869 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="relation" attr.type="string"/>
+<key id="d7" for="node" attr.name="version" attr.type="string"/>
+<key id="d6" for="node" attr.name="value" attr.type="double"/>
+<key id="d5" for="node" attr.name="mode" attr.type="string"/>
+<key id="d4" for="node" attr.name="value" attr.type="string"/>
+<key id="d3" for="node" attr.name="key" attr.type="string"/>
+<key id="d2" for="node" attr.name="timestamp" attr.type="string"/>
+<key id="d1" for="node" attr.name="id" attr.type="long"/>
+<key id="d0" for="node" attr.name="type" attr.type="string"/>
+<graph edgedefault="directed"><node id="Sample:1">
+  <data key="d0">Sample</data>
+  <data key="d1">1</data>
+  <data key="d2">2025-09-07T02:17:31.082358</data>
+</node>
+<node id="Condition:temp=nan">
+  <data key="d0">Condition</data>
+  <data key="d3">temp</data>
+  <data key="d4">nan</data>
+</node>
+<node id="Condition:humidity=nan">
+  <data key="d0">Condition</data>
+  <data key="d3">humidity</data>
+  <data key="d4">nan</data>
+</node>
+<node id="Condition:aw=nan">
+  <data key="d0">Condition</data>
+  <data key="d3">aw</data>
+  <data key="d4">nan</data>
+</node>
+<node id="Condition:pH=6.2">
+  <data key="d0">Condition</data>
+  <data key="d3">pH</data>
+  <data key="d4">6.2</data>
+</node>
+<node id="Condition:tank=1">
+  <data key="d0">Condition</data>
+  <data key="d3">tank</data>
+  <data key="d4">1</data>
+</node>
+<node id="Condition:period=30">
+  <data key="d0">Condition</data>
+  <data key="d3">period</data>
+  <data key="d4">30</data>
+</node>
+<node id="Condition:moisture=50.0">
+  <data key="d0">Condition</data>
+  <data key="d3">moisture</data>
+  <data key="d4">50.0</data>
+</node>
+<node id="Condition:salt=12.0">
+  <data key="d0">Condition</data>
+  <data key="d3">salt</data>
+  <data key="d4">12.0</data>
+</node>
+<node id="Condition:initial_cfu=5000">
+  <data key="d0">Condition</data>
+  <data key="d3">initial_cfu</data>
+  <data key="d4">5000</data>
+</node>
+<node id="Measurement:Predicted:1">
+  <data key="d0">Measurement</data>
+  <data key="d5">predicted</data>
+  <data key="d6">8303.5</data>
+</node>
+<node id="Model:cfu_model_retrained.pkl|sha256:d8677d5388|mtime:1757208878">
+  <data key="d0">Model</data>
+  <data key="d7">cfu_model_retrained.pkl|sha256:d8677d5388|mtime:1757208878</data>
+</node>
+<node id="Measurement:Actual:1">
+  <data key="d0">Measurement</data>
+  <data key="d5">actual</data>
+  <data key="d6">8900.0</data>
+</node>
+<node id="Derived:mu:1">
+  <data key="d0">Derived</data>
+  <data key="d6">0.0008008518948666581</data>
+</node>
+<node id="Sample:2">
+  <data key="d0">Sample</data>
+  <data key="d1">2</data>
+  <data key="d2">2025-09-07T03:01:55.561049</data>
+</node>
+<node id="Condition:pH=5.1">
+  <data key="d0">Condition</data>
+  <data key="d3">pH</data>
+  <data key="d4">5.1</data>
+</node>
+<node id="Condition:period=83">
+  <data key="d0">Condition</data>
+  <data key="d3">period</data>
+  <data key="d4">83</data>
+</node>
+<node id="Condition:moisture=53.0">
+  <data key="d0">Condition</data>
+  <data key="d3">moisture</data>
+  <data key="d4">53.0</data>
+</node>
+<node id="Condition:salt=10.0">
+  <data key="d0">Condition</data>
+  <data key="d3">salt</data>
+  <data key="d4">10.0</data>
+</node>
+<node id="Condition:initial_cfu=3200">
+  <data key="d0">Condition</data>
+  <data key="d3">initial_cfu</data>
+  <data key="d4">3200</data>
+</node>
+<node id="Measurement:Predicted:2">
+  <data key="d0">Measurement</data>
+  <data key="d5">predicted</data>
+  <data key="d6">9092.5</data>
+</node>
+<node id="Measurement:Actual:2">
+  <data key="d0">Measurement</data>
+  <data key="d5">actual</data>
+  <data key="d6">4600.0</data>
+</node>
+<node id="Derived:mu:2">
+  <data key="d0">Derived</data>
+  <data key="d6">0.00018218147273562675</data>
+</node>
+<node id="Sample:3">
+  <data key="d0">Sample</data>
+  <data key="d1">3</data>
+  <data key="d2">2025-09-08T06:31:26.045804</data>
+</node>
+<node id="Condition:pH=5.3">
+  <data key="d0">Condition</data>
+  <data key="d3">pH</data>
+  <data key="d4">5.3</data>
+</node>
+<node id="Condition:tank=2">
+  <data key="d0">Condition</data>
+  <data key="d3">tank</data>
+  <data key="d4">2</data>
+</node>
+<node id="Condition:period=89">
+  <data key="d0">Condition</data>
+  <data key="d3">period</data>
+  <data key="d4">89</data>
+</node>
+<node id="Condition:moisture=51.9">
+  <data key="d0">Condition</data>
+  <data key="d3">moisture</data>
+  <data key="d4">51.9</data>
+</node>
+<node id="Condition:salt=10.5">
+  <data key="d0">Condition</data>
+  <data key="d3">salt</data>
+  <data key="d4">10.5</data>
+</node>
+<node id="Condition:initial_cfu=12500">
+  <data key="d0">Condition</data>
+  <data key="d3">initial_cfu</data>
+  <data key="d4">12500</data>
+</node>
+<node id="Measurement:Predicted:3">
+  <data key="d0">Measurement</data>
+  <data key="d5">predicted</data>
+  <data key="d6">13436.5</data>
+</node>
+<node id="Model:cfu_model_retrained.pkl|sha256:8ea2ea44a8|mtime:1757312875">
+  <data key="d0">Model</data>
+  <data key="d7">cfu_model_retrained.pkl|sha256:8ea2ea44a8|mtime:1757312875</data>
+</node>
+<node id="Measurement:Actual:3">
+  <data key="d0">Measurement</data>
+  <data key="d5">actual</data>
+  <data key="d6">12100.0</data>
+</node>
+<node id="Derived:mu:3">
+  <data key="d0">Derived</data>
+  <data key="d6">-1.5226213345299654e-05</data>
+</node>
+<node id="Sample:4">
+  <data key="d0">Sample</data>
+  <data key="d1">4</data>
+  <data key="d2">2025-09-08T06:32:37.768831</data>
+</node>
+<node id="Condition:pH=5.4">
+  <data key="d0">Condition</data>
+  <data key="d3">pH</data>
+  <data key="d4">5.4</data>
+</node>
+<node id="Condition:tank=10">
+  <data key="d0">Condition</data>
+  <data key="d3">tank</data>
+  <data key="d4">10</data>
+</node>
+<node id="Condition:moisture=52.2">
+  <data key="d0">Condition</data>
+  <data key="d3">moisture</data>
+  <data key="d4">52.2</data>
+</node>
+<node id="Condition:salt=11.1">
+  <data key="d0">Condition</data>
+  <data key="d3">salt</data>
+  <data key="d4">11.1</data>
+</node>
+<node id="Condition:initial_cfu=8100">
+  <data key="d0">Condition</data>
+  <data key="d3">initial_cfu</data>
+  <data key="d4">8100</data>
+</node>
+<node id="Measurement:Predicted:4">
+  <data key="d0">Measurement</data>
+  <data key="d5">predicted</data>
+  <data key="d6">13122.0</data>
+</node>
+<node id="Measurement:Actual:4">
+  <data key="d0">Measurement</data>
+  <data key="d5">actual</data>
+  <data key="d6">23800.0</data>
+</node>
+<node id="Derived:mu:4">
+  <data key="d0">Derived</data>
+  <data key="d6">0.0005045980894190243</data>
+</node>
+<node id="Sample:5">
+  <data key="d0">Sample</data>
+  <data key="d1">5</data>
+  <data key="d2">2025-09-08T07:00:15.951201</data>
+</node>
+<node id="Condition:tank=3">
+  <data key="d0">Condition</data>
+  <data key="d3">tank</data>
+  <data key="d4">3</data>
+</node>
+<node id="Condition:period=36">
+  <data key="d0">Condition</data>
+  <data key="d3">period</data>
+  <data key="d4">36</data>
+</node>
+<node id="Condition:moisture=51.8">
+  <data key="d0">Condition</data>
+  <data key="d3">moisture</data>
+  <data key="d4">51.8</data>
+</node>
+<node id="Condition:initial_cfu=3100">
+  <data key="d0">Condition</data>
+  <data key="d3">initial_cfu</data>
+  <data key="d4">3100</data>
+</node>
+<node id="Measurement:Predicted:5">
+  <data key="d0">Measurement</data>
+  <data key="d5">predicted</data>
+  <data key="d6">6821.5</data>
+</node>
+<node id="Model:cfu_model_retrained.pkl|sha256:6912f5517f|mtime:1757313270">
+  <data key="d0">Model</data>
+  <data key="d7">cfu_model_retrained.pkl|sha256:6912f5517f|mtime:1757313270</data>
+</node>
+<node id="Measurement:Actual:5">
+  <data key="d0">Measurement</data>
+  <data key="d5">actual</data>
+  <data key="d6">6200.0</data>
+</node>
+<node id="Derived:mu:5">
+  <data key="d0">Derived</data>
+  <data key="d6">0.0008022536812036404</data>
+</node>
+<node id="Sample:6">
+  <data key="d0">Sample</data>
+  <data key="d1">6</data>
+  <data key="d2">2025-09-09T01:58:44.347539</data>
+</node>
+<node id="Condition:period=39">
+  <data key="d0">Condition</data>
+  <data key="d3">period</data>
+  <data key="d4">39</data>
+</node>
+<node id="Condition:moisture=50.8">
+  <data key="d0">Condition</data>
+  <data key="d3">moisture</data>
+  <data key="d4">50.8</data>
+</node>
+<node id="Condition:initial_cfu=1100">
+  <data key="d0">Condition</data>
+  <data key="d3">initial_cfu</data>
+  <data key="d4">1100</data>
+</node>
+<node id="Measurement:Predicted:6">
+  <data key="d0">Measurement</data>
+  <data key="d5">predicted</data>
+  <data key="d6">7122.5</data>
+</node>
+<node id="Model:cfu_model_retrained.pkl|sha256:ee0b284389|mtime:1757315122">
+  <data key="d0">Model</data>
+  <data key="d7">cfu_model_retrained.pkl|sha256:ee0b284389|mtime:1757315122</data>
+</node>
+<node id="Measurement:Actual:6">
+  <data key="d0">Measurement</data>
+  <data key="d5">actual</data>
+  <data key="d6">7400.0</data>
+</node>
+<node id="Derived:mu:6">
+  <data key="d0">Derived</data>
+  <data key="d6">0.002036506218382264</data>
+</node>
+<node id="Sample:7">
+  <data key="d0">Sample</data>
+  <data key="d1">7</data>
+  <data key="d2">2025-09-09T05:00:09.624833</data>
+</node>
+<node id="Condition:pH=6.1">
+  <data key="d0">Condition</data>
+  <data key="d3">pH</data>
+  <data key="d4">6.1</data>
+</node>
+<node id="Condition:tank=8">
+  <data key="d0">Condition</data>
+  <data key="d3">tank</data>
+  <data key="d4">8</data>
+</node>
+<node id="Condition:moisture=51.0">
+  <data key="d0">Condition</data>
+  <data key="d3">moisture</data>
+  <data key="d4">51.0</data>
+</node>
+<node id="Condition:salt=11.0">
+  <data key="d0">Condition</data>
+  <data key="d3">salt</data>
+  <data key="d4">11.0</data>
+</node>
+<node id="Condition:initial_cfu=1600">
+  <data key="d0">Condition</data>
+  <data key="d3">initial_cfu</data>
+  <data key="d4">1600</data>
+</node>
+<node id="Measurement:Predicted:7">
+  <data key="d0">Measurement</data>
+  <data key="d5">predicted</data>
+  <data key="d6">6276.5</data>
+</node>
+<node id="Model:cfu_model_retrained.pkl|sha256:414c047e92|mtime:1757383215">
+  <data key="d0">Model</data>
+  <data key="d7">cfu_model_retrained.pkl|sha256:414c047e92|mtime:1757383215</data>
+</node>
+<node id="Measurement:Actual:7">
+  <data key="d0">Measurement</data>
+  <data key="d5">actual</data>
+  <data key="d6">23000.0</data>
+</node>
+<node id="Derived:mu:7">
+  <data key="d0">Derived</data>
+  <data key="d6">0.002847746353294246</data>
+</node>
+<node id="Sample:8">
+  <data key="d0">Sample</data>
+  <data key="d1">8</data>
+  <data key="d2">2025-09-09T05:11:35.349752</data>
+</node>
+<node id="Condition:tank=14">
+  <data key="d0">Condition</data>
+  <data key="d3">tank</data>
+  <data key="d4">14</data>
+</node>
+<node id="Condition:moisture=50.6">
+  <data key="d0">Condition</data>
+  <data key="d3">moisture</data>
+  <data key="d4">50.6</data>
+</node>
+<node id="Condition:salt=10.9">
+  <data key="d0">Condition</data>
+  <data key="d3">salt</data>
+  <data key="d4">10.9</data>
+</node>
+<node id="Condition:initial_cfu=5500">
+  <data key="d0">Condition</data>
+  <data key="d3">initial_cfu</data>
+  <data key="d4">5500</data>
+</node>
+<node id="Measurement:Predicted:8">
+  <data key="d0">Measurement</data>
+  <data key="d5">predicted</data>
+  <data key="d6">11477.0</data>
+</node>
+<node id="Model:cfu_model_retrained.pkl|sha256:cbc99592d7|mtime:1757394058">
+  <data key="d0">Model</data>
+  <data key="d7">cfu_model_retrained.pkl|sha256:cbc99592d7|mtime:1757394058</data>
+</node>
+<node id="Measurement:Actual:8">
+  <data key="d0">Measurement</data>
+  <data key="d5">actual</data>
+  <data key="d6">31200.0</data>
+</node>
+<node id="Derived:mu:8">
+  <data key="d0">Derived</data>
+  <data key="d6">0.001854348293351508</data>
+</node>
+<node id="Sample:11">
+  <data key="d0">Sample</data>
+  <data key="d1">11</data>
+  <data key="d2">2025-09-09T07:55:55.266672</data>
+</node>
+<node id="Condition:pH=6.0">
+  <data key="d0">Condition</data>
+  <data key="d3">pH</data>
+  <data key="d4">6.0</data>
+</node>
+<node id="Condition:period=35">
+  <data key="d0">Condition</data>
+  <data key="d3">period</data>
+  <data key="d4">35</data>
+</node>
+<node id="Condition:moisture=54.8">
+  <data key="d0">Condition</data>
+  <data key="d3">moisture</data>
+  <data key="d4">54.8</data>
+</node>
+<node id="Condition:salt=10.4">
+  <data key="d0">Condition</data>
+  <data key="d3">salt</data>
+  <data key="d4">10.4</data>
+</node>
+<node id="Condition:initial_cfu=1800">
+  <data key="d0">Condition</data>
+  <data key="d3">initial_cfu</data>
+  <data key="d4">1800</data>
+</node>
+<node id="Measurement:Predicted:11">
+  <data key="d0">Measurement</data>
+  <data key="d5">predicted</data>
+  <data key="d6">6626.0</data>
+</node>
+<node id="Measurement:Actual:11">
+  <data key="d0">Measurement</data>
+  <data key="d5">actual</data>
+  <data key="d6">6900.0</data>
+</node>
+<node id="Derived:mu:11">
+  <data key="d0">Derived</data>
+  <data key="d6">0.001599684222263208</data>
+</node>
+<node id="Sample:12">
+  <data key="d0">Sample</data>
+  <data key="d1">12</data>
+  <data key="d2">2025-09-09T08:00:07.899571</data>
+</node>
+<node id="Condition:tank=7">
+  <data key="d0">Condition</data>
+  <data key="d3">tank</data>
+  <data key="d4">7</data>
+</node>
+<node id="Condition:period=45">
+  <data key="d0">Condition</data>
+  <data key="d3">period</data>
+  <data key="d4">45</data>
+</node>
+<node id="Condition:moisture=54.4">
+  <data key="d0">Condition</data>
+  <data key="d3">moisture</data>
+  <data key="d4">54.4</data>
+</node>
+<node id="Condition:initial_cfu=1400">
+  <data key="d0">Condition</data>
+  <data key="d3">initial_cfu</data>
+  <data key="d4">1400</data>
+</node>
+<node id="Measurement:Predicted:12">
+  <data key="d0">Measurement</data>
+  <data key="d5">predicted</data>
+  <data key="d6">6386.0</data>
+</node>
+<node id="Model:cfu_model_retrained.pkl|sha256:44eb5b57e5|mtime:1757404689">
+  <data key="d0">Model</data>
+  <data key="d7">cfu_model_retrained.pkl|sha256:44eb5b57e5|mtime:1757404689</data>
+</node>
+<node id="Measurement:Actual:12">
+  <data key="d0">Measurement</data>
+  <data key="d5">actual</data>
+  <data key="d6">2500.0</data>
+</node>
+<node id="Derived:mu:12">
+  <data key="d0">Derived</data>
+  <data key="d6">0.0005368689770860576</data>
+</node>
+<edge source="Sample:1" target="Condition:temp=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:humidity=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:aw=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:pH=6.2">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:tank=1">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:period=30">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:moisture=50.0">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:salt=12.0">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Condition:initial_cfu=5000">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:1" target="Measurement:Predicted:1">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Sample:1" target="Measurement:Actual:1">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Measurement:Predicted:1" target="Model:cfu_model_retrained.pkl|sha256:d8677d5388|mtime:1757208878">
+  <data key="d8">measuredBy</data>
+</edge>
+<edge source="Measurement:Actual:1" target="Derived:mu:1">
+  <data key="d8">yields</data>
+</edge>
+<edge source="Sample:2" target="Condition:temp=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:2" target="Condition:humidity=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:2" target="Condition:aw=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:2" target="Condition:pH=5.1">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:2" target="Condition:tank=1">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:2" target="Condition:period=83">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:2" target="Condition:moisture=53.0">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:2" target="Condition:salt=10.0">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:2" target="Condition:initial_cfu=3200">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:2" target="Measurement:Predicted:2">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Sample:2" target="Measurement:Actual:2">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Measurement:Predicted:2" target="Model:cfu_model_retrained.pkl|sha256:d8677d5388|mtime:1757208878">
+  <data key="d8">measuredBy</data>
+</edge>
+<edge source="Measurement:Actual:2" target="Derived:mu:2">
+  <data key="d8">yields</data>
+</edge>
+<edge source="Sample:3" target="Condition:temp=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:3" target="Condition:humidity=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:3" target="Condition:aw=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:3" target="Condition:pH=5.3">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:3" target="Condition:tank=2">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:3" target="Condition:period=89">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:3" target="Condition:moisture=51.9">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:3" target="Condition:salt=10.5">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:3" target="Condition:initial_cfu=12500">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:3" target="Measurement:Predicted:3">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Sample:3" target="Measurement:Actual:3">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Measurement:Predicted:3" target="Model:cfu_model_retrained.pkl|sha256:8ea2ea44a8|mtime:1757312875">
+  <data key="d8">measuredBy</data>
+</edge>
+<edge source="Measurement:Actual:3" target="Derived:mu:3">
+  <data key="d8">yields</data>
+</edge>
+<edge source="Sample:4" target="Condition:temp=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:4" target="Condition:humidity=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:4" target="Condition:aw=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:4" target="Condition:pH=5.4">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:4" target="Condition:tank=10">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:4" target="Condition:period=89">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:4" target="Condition:moisture=52.2">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:4" target="Condition:salt=11.1">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:4" target="Condition:initial_cfu=8100">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:4" target="Measurement:Predicted:4">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Sample:4" target="Measurement:Actual:4">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Measurement:Predicted:4" target="Model:cfu_model_retrained.pkl|sha256:8ea2ea44a8|mtime:1757312875">
+  <data key="d8">measuredBy</data>
+</edge>
+<edge source="Measurement:Actual:4" target="Derived:mu:4">
+  <data key="d8">yields</data>
+</edge>
+<edge source="Sample:5" target="Condition:temp=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:5" target="Condition:humidity=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:5" target="Condition:aw=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:5" target="Condition:pH=6.2">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:5" target="Condition:tank=3">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:5" target="Condition:period=36">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:5" target="Condition:moisture=51.8">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:5" target="Condition:salt=10.5">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:5" target="Condition:initial_cfu=3100">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:5" target="Measurement:Predicted:5">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Sample:5" target="Measurement:Actual:5">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Measurement:Predicted:5" target="Model:cfu_model_retrained.pkl|sha256:6912f5517f|mtime:1757313270">
+  <data key="d8">measuredBy</data>
+</edge>
+<edge source="Measurement:Actual:5" target="Derived:mu:5">
+  <data key="d8">yields</data>
+</edge>
+<edge source="Sample:6" target="Condition:temp=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:6" target="Condition:humidity=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:6" target="Condition:aw=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:6" target="Condition:pH=6.2">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:6" target="Condition:tank=3">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:6" target="Condition:period=39">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:6" target="Condition:moisture=50.8">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:6" target="Condition:salt=11.1">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:6" target="Condition:initial_cfu=1100">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:6" target="Measurement:Predicted:6">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Sample:6" target="Measurement:Actual:6">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Measurement:Predicted:6" target="Model:cfu_model_retrained.pkl|sha256:ee0b284389|mtime:1757315122">
+  <data key="d8">measuredBy</data>
+</edge>
+<edge source="Measurement:Actual:6" target="Derived:mu:6">
+  <data key="d8">yields</data>
+</edge>
+<edge source="Sample:7" target="Condition:temp=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:7" target="Condition:humidity=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:7" target="Condition:aw=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:7" target="Condition:pH=6.1">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:7" target="Condition:tank=8">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:7" target="Condition:period=39">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:7" target="Condition:moisture=51.0">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:7" target="Condition:salt=11.0">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:7" target="Condition:initial_cfu=1600">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:7" target="Measurement:Predicted:7">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Sample:7" target="Measurement:Actual:7">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Measurement:Predicted:7" target="Model:cfu_model_retrained.pkl|sha256:414c047e92|mtime:1757383215">
+  <data key="d8">measuredBy</data>
+</edge>
+<edge source="Measurement:Actual:7" target="Derived:mu:7">
+  <data key="d8">yields</data>
+</edge>
+<edge source="Sample:8" target="Condition:temp=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:8" target="Condition:humidity=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:8" target="Condition:aw=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:8" target="Condition:pH=6.1">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:8" target="Condition:tank=14">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:8" target="Condition:period=39">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:8" target="Condition:moisture=50.6">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:8" target="Condition:salt=10.9">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:8" target="Condition:initial_cfu=5500">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:8" target="Measurement:Predicted:8">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Sample:8" target="Measurement:Actual:8">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Measurement:Predicted:8" target="Model:cfu_model_retrained.pkl|sha256:cbc99592d7|mtime:1757394058">
+  <data key="d8">measuredBy</data>
+</edge>
+<edge source="Measurement:Actual:8" target="Derived:mu:8">
+  <data key="d8">yields</data>
+</edge>
+<edge source="Sample:11" target="Condition:temp=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:11" target="Condition:humidity=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:11" target="Condition:aw=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:11" target="Condition:pH=6.0">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:11" target="Condition:tank=3">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:11" target="Condition:period=35">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:11" target="Condition:moisture=54.8">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:11" target="Condition:salt=10.4">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:11" target="Condition:initial_cfu=1800">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:11" target="Measurement:Predicted:11">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Sample:11" target="Measurement:Actual:11">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Measurement:Predicted:11" target="Model:cfu_model_retrained.pkl|sha256:cbc99592d7|mtime:1757394058">
+  <data key="d8">measuredBy</data>
+</edge>
+<edge source="Measurement:Actual:11" target="Derived:mu:11">
+  <data key="d8">yields</data>
+</edge>
+<edge source="Sample:12" target="Condition:temp=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:12" target="Condition:humidity=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:12" target="Condition:aw=nan">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:12" target="Condition:pH=5.3">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:12" target="Condition:tank=7">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:12" target="Condition:period=45">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:12" target="Condition:moisture=54.4">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:12" target="Condition:salt=10.5">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:12" target="Condition:initial_cfu=1400">
+  <data key="d8">hasCondition</data>
+</edge>
+<edge source="Sample:12" target="Measurement:Predicted:12">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Sample:12" target="Measurement:Actual:12">
+  <data key="d8">hasMeasurement</data>
+</edge>
+<edge source="Measurement:Predicted:12" target="Model:cfu_model_retrained.pkl|sha256:44eb5b57e5|mtime:1757404689">
+  <data key="d8">measuredBy</data>
+</edge>
+<edge source="Measurement:Actual:12" target="Derived:mu:12">
+  <data key="d8">yields</data>
+</edge>
+</graph></graphml>

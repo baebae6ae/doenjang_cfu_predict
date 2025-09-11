@@ -1,0 +1,16 @@
+numpy
+pandas
+scikit-learn
+xgboost
+lightgbm
+streamlit
+joblib
+requests
+beautifulsoup4
+lxml
+matplotlib
+seaborn
+optuna
+networkx
+pyvis
+plotly
